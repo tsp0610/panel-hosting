@@ -6,6 +6,7 @@ Welcome to the **Hosting Panel Installer** – a professional-grade automation s
 ## ⚙️ Installation
 
 > 🧪 Run on a fresh VPS for best results
+
 > 🤖 **Command:** `bash <(curl -fsSL https://raw.githubusercontent.com/tsp0610/panel-hosting/refs/heads/main/Installer.sh)`
 
 ### 🔧 One-Line Installation
