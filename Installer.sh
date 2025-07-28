@@ -117,7 +117,7 @@ function puffer_menu {
     case $puffer_choice in
       1)
         echo_message "$GREEN" "Installing Puffer Panel..."
-        bash <(curl -s https://raw.githubusercontent.com/JishnuTheGamer/Vps/refs/heads/main/puffer-panel)
+        bash <(curl -s https://raw.githubusercontent.com/tsp0610/Vps/refs/heads/main/puffer-panel)
         echo_message "$GREEN" "Puffer Panel installation completed!"
         prompt_daemon "puffer"
         ;;
@@ -147,13 +147,13 @@ function draco_menu {
     case $draco_choice in
       1)
         echo_message "$GREEN" "Installing Draco Panel..."
-        bash <(curl -s https://raw.githubusercontent.com/JishnuTheGamer/Vps/refs/heads/main/draco)
+        bash <(curl -s https://raw.githubusercontent.com/tsp0610/Vps/refs/heads/main/draco)
         echo_message "$GREEN" "Draco Panel installation completed!"
         prompt_daemon "draco"
         ;;
       2)
         echo_message "$GREEN" "Installing Draco Daemon (wings)..."
-        bash <(curl -s https://raw.githubusercontent.com/JishnuTheGamer/Vps/refs/heads/main/daemon)
+        bash <(curl -s https://raw.githubusercontent.com/tsp0610/Vps/refs/heads/main/daemon)
         echo_message "$GREEN" "Your daemon(wings) is complet install make sure paste the 1 & 2 is your node (daemon)configure code"
         echo -e "${CYAN}1) cd Vortex-Deamon${NC}"
         echo -e "${CYAN}2) paste your configure${NC}"
@@ -202,13 +202,13 @@ function skyport_menu {
     case $skyport_choice in
       1)
         echo_message "$GREEN" "Installing Skyport Panel..."
-        bash <(curl -s https://raw.githubusercontent.com/JishnuTheGamer/Vps/refs/heads/main/skyport)
+        bash <(curl -s https://raw.githubusercontent.com/tsp0610/Vps/refs/heads/main/skyport)
         echo_message "$GREEN" "Skyport Panel installation completed!"
         prompt_daemon "skyport"
         ;;
       2)
         echo_message "$GREEN" "Installing Daemon (wings)..."
-        bash <(curl -s https://raw.githubusercontent.com/JishnuTheGamer/skyport/refs/heads/main/wings)
+        bash <(curl -s https://raw.githubusercontent.com/tsp0610/skyport/refs/heads/main/wings)
         echo_message "$GREEN" "Your daemon(wings) is complet install make sure paste the 1 & 2 is your node (daemon)configure code"
         echo -e "${CYAN}1) cd skyportd${NC}"
         echo -e "${CYAN}2) paste your configure${NC}"
@@ -309,9 +309,9 @@ function prompt_daemon {
   if [[ "$install_daemon" == "yes" || "$install_daemon" == "y" ]]; then
     echo_message "$GREEN" "Installing Daemon (wings)..."
     if [[ "$panel_type" == "skyport" ]]; then
-      bash <(curl -s https://raw.githubusercontent.com/JishnuTheGamer/skyport/refs/heads/main/wings)
+      bash <(curl -s https://raw.githubusercontent.com/tsp0610/skyport/refs/heads/main/wings)
     else
-      bash <(curl -s https://raw.githubusercontent.com/JishnuTheGamer/Vps/refs/heads/main/daemon)
+      bash <(curl -s https://raw.githubusercontent.com/tsp0610/Vps/refs/heads/main/daemon)
     fi
     echo_message "$GREEN" "Your daemon(wings) is complet install make sure paste the 1 & 2 is your node (daemon)configure code"
     if [[ "$panel_type" == "skyport" ]]; then
