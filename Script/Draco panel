@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Draco Panel Installer Script
+# This script installs Draco Panel (v3) from the provided GitHub repo.
+# Requirements: Run as root or with sudo. Debian-based OS (e.g., Ubuntu).
+# Author: [Your Name or GitHub Handle]
+
+# Function to handle errors
+function error_exit {
+  echo "Error: $1" 1>&2
+  exit 1
+}
+
+# Check if running as root
+if [ "$EUID" -ne 0 ]; then
+  error_exit "Please run this script as root or with sudo."
+fi
+
+# Update system and install prerequisites (git, zip, Node.js, npm)
+echo "Updating system and installing prerequisites..."
+apt update -y || error_exit "Failed to update package list."
+apt install git zip curl -y || error_exit "Failed to install git, zip, or curl."
+
+# Install Node.js (LTS version) if not already installed
+if ! command -v node &> /dev/null; then
+  echo "Installing Node.js..."
+  curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - || error_exit "Failed to set up Node.js repository."
+  apt install -y nodejs || error_exit "Failed to install Node.js."
+fi
+
+# Clone the repo
+echo "Cloning Draco Panel repository..."
+git clone https://github.com/dragonlabsdev/v3panel || error_exit "Failed to clone repository."
+cd v3panel || error_exit "Failed to enter v3panel directory."
+
+# Unzip the panel
+echo "Unzipping panel..."
+unzip panel.zip || error_exit "Failed to unzip panel.zip."
+
+# Enter panel directory and install dependencies
+cd panel || error_exit "Failed to enter panel directory."
+echo "Installing npm dependencies..."
+npm install || error_exit "Failed to run npm install."
+
+# Run seeding and user creation
+echo "Running database seed..."
+npm run seed || error_exit "Failed to run npm run seed."
+echo "Creating initial user..."
+npm run createUser || error_exit "Failed to run npm run createUser."
+
+# Start the panel
+echo "Starting Draco Panel..."
+node . || error_exit "Failed to start the panel with node ."
+
+echo "Draco Panel installation complete! Access it via your server's IP (check console for details)."
+echo "Note: You may need to configure firewalls, ports, or PM2 for production use."
