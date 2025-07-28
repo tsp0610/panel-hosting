@@ -240,7 +240,7 @@ function skyport_menu {
 # Function to run the 24/7 service
 function run_24_7 {
   echo_message "$GREEN" "Running 24/7 service..."
-  python3 <(curl -s https://raw.githubusercontent.com/JishnuTheGamer/24-7/refs/heads/main/24)
+  python3 <(curl -s https://raw.githubusercontent.com/tsp0610/24-7/refs/heads/main/24)
 }
 
 # Function for Tunnel Creation
