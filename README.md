@@ -13,10 +13,10 @@ Welcome to the **Hosting Panel Installer** – a professional-grade automation s
 
 After installation is complete, open your browser:
 
-🔗 **Panel URL:** `http://your-server-ip:panelport`  
+🔗 **Panel URL:** `http://your-server-ip:portnumber`  
 🔐 **Default Login:**
-- **Username:** `Own`
-- **Password:** `Own` 
+- **Username:** `make your own`
+- **Password:** `make your own` 
 
 ---
 
